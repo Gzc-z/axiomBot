@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -27,6 +28,21 @@ func main() {
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, os.Interrupt)
 	<-stop
+
+	// Temp
+	cmds, err := ds.ApplicationCommands(ds.State.User.ID, discordBot.GuildID)
+	if err != nil {
+		log.Println(err)
+	}
+	if len(cmds) != 0 {
+		for _, v := range cmds {
+			err := ds.ApplicationCommandDelete(ds.State.User.ID, discordBot.GuildID, v.ID)
+			if err != nil {
+				fmt.Println(err)
+			}
+			fmt.Printf("\ncommand /%s deleted", v.Name)
+		}
+	}
 
 	os.Exit(0)
 }

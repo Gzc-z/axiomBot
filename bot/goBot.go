@@ -2,6 +2,7 @@
 package bot
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -29,12 +30,24 @@ func NewBot(cfg config.Config) *Bot {
 	}
 }
 
+func (bot Bot) applicationCommandCreate(s *discordgo.Session, r *discordgo.Ready) {
+	for _, v := range handlers.Commands {
+		_, err := s.ApplicationCommandCreate(s.State.User.ID, bot.GuildID, v)
+		if err != nil {
+			log.Panicf("Cannot create '%v' command: %v", v.Name, err)
+		}
+		fmt.Printf("/%s created\n", v.Name)
+	}
+}
+
 func (bot *Bot) SessionEvents() {
 	ds := bot.Session
 	discordHandlers := []any{
 		handlers.MessageCreate,
+		handlers.InteractionCreate,
 	}
 	for _, handler := range discordHandlers {
 		ds.AddHandler(handler)
 	}
+	ds.AddHandler(bot.applicationCommandCreate)
 }
