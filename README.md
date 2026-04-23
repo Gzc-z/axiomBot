@@ -3,9 +3,12 @@
 # o que é
 
 discord bot multifuncional, projetado para facilitar processos, tarefas e problemas comuns em comunidades.
-**ainda em desenvolvimento**
 
-# como usar
+pretendo possivelmente facilitar a criação de bots discord, criando uma infraestrutura
+própria que se estenderá com outros projetos.
+
+# uso
+
 
 # o nome
 
@@ -15,4 +18,5 @@ o nome "Axiom" veio, como algo verdadeiro sem necessidade de provas, como declar
 
 * [ ] escalar o bot para diferentes tags com diferentes propositos
 * [ ] atualizar README e documentações
+* [ ] documentar melhor README
 * [ ] colocar mais coisas na checklist
