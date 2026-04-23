@@ -4,7 +4,7 @@
 
 discord bot multifuncional, projetado para facilitar processos, tarefas e problemas comuns em comunidades.
 
-pretendo possivelmente facilitar a criação de bots discord, criando uma infraestrutura
+futuramente pretendo possivelmente facilitar a criação de bots discord, criando uma infraestrutura
 própria que se estenderá com outros projetos.
 
 # uso
